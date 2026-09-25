@@ -68,24 +68,24 @@ st.markdown("""
     }
     
     /* Buttons */
-    .stButton>button {
+    .stButton>button, .stFormSubmitButton>button {
         background-color: var(--primary-purple);
-        color: white;
+        color: var(--dark-navy) !important;
         border-radius: 8px;
         padding: 0.75rem 1.5rem;
-        font-weight: 600;
+        font-weight: 700;
         border: none;
         transition: all 0.3s ease;
         width: 100%;
     }
     
-    .stButton>button:hover {
+    .stButton>button:hover, .stFormSubmitButton>button:hover {
         background-color: #9b8aee;
         box-shadow: 0 4px 12px rgba(178, 164, 255, 0.4);
-        color: white;
+        color: var(--dark-navy) !important;
     }
     
-    /* Form sections */
+    /* Form sections & Visibility Fixes */
     .form-section {
         background: white;
         padding: 24px;
@@ -94,6 +94,11 @@ st.markdown("""
         margin-bottom: 24px;
         border: 1px solid rgba(0,0,0,0.05);
     }
+    
+    label, p, input, select, [data-baseweb="select"] {
+        color: var(--dark-navy) !important;
+    }
+
     
     /* Headers */
     h1, h2, h3 {
