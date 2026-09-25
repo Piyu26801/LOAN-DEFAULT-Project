@@ -85,20 +85,87 @@ st.markdown("""
         color: var(--dark-navy) !important;
     }
     
-    /* Form sections & Visibility Fixes */
+    /* Hide broken empty div injections, style the form container instead */
     .form-section {
-        background: white;
-        padding: 24px;
-        border-radius: 16px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-        margin-bottom: 24px;
-        border: 1px solid rgba(0,0,0,0.05);
+        display: none !important;
     }
     
-    label, p, input, select, [data-baseweb="select"] {
-        color: var(--dark-navy) !important;
+    [data-testid="stForm"] {
+        background: white;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        border: 1px solid rgba(178, 164, 255, 0.2);
+    }
+    
+    /* General Paragraphs */
+    p {
+        color: var(--dark-navy);
     }
 
+    /* Labels */
+    label[data-testid="stWidgetLabel"] p, label {
+        color: var(--dark-navy) !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Make ALL inputs consistently dark (Number, Text, Select) */
+    [data-baseweb="input"], [data-baseweb="base-input"], [data-baseweb="select"] > div {
+        background-color: var(--dark-navy) !important;
+        border: 1px solid rgba(178, 164, 255, 0.4) !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease;
+    }
+    
+    /* Focus state */
+    [data-baseweb="input"]:focus-within, [data-baseweb="base-input"]:focus-within, [data-baseweb="select"] > div:focus-within {
+        border-color: var(--primary-purple) !important;
+        box-shadow: 0 0 0 3px rgba(178, 164, 255, 0.4) !important;
+    }
+    
+    /* Ensure +/- buttons in number input are also dark */
+    [data-baseweb="input"] button, [data-baseweb="base-input"] button {
+        background-color: var(--dark-navy) !important;
+        color: #FFFFFF !important;
+    }
+    
+    /* Text inside inputs */
+    [data-baseweb="input"] input, [data-baseweb="base-input"] input, div[data-baseweb="select"] * {
+        color: #FFFFFF !important;
+        caret-color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+    }
+    
+    /* Placeholder */
+    input::placeholder {
+        color: #A0AAB5 !important;
+        -webkit-text-fill-color: #A0AAB5 !important;
+    }
+    
+    /* Dropdown list (Selectbox options) */
+    ul[role="listbox"] {
+        background-color: var(--off-white) !important;
+        border: 1px solid var(--primary-purple) !important;
+        border-radius: 8px;
+    }
+    
+    ul[role="listbox"] li {
+        color: var(--dark-navy) !important;
+    }
+    
+    ul[role="listbox"] li[aria-selected="true"] {
+        background-color: var(--primary-purple) !important;
+        color: #FFFFFF !important;
+    }
+    
+    /* Fix markdown labels getting forced to white by wildcards */
+    div[data-testid="stMarkdownContainer"] p {
+        color: var(--dark-navy) !important;
+    }
+    div[data-baseweb="select"] div[data-testid="stMarkdownContainer"] p {
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+    }
     
     /* Headers */
     h1, h2, h3 {
